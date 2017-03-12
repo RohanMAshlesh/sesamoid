@@ -322,7 +322,7 @@ else
             imagen3 =~im2bw(imagen3,Thresh2BW);
             %---inver the bw image-----
           
-            if radval == 1  % executed only if radio button is set and used only for a chassis and engine number 
+            if radval == 1  
                  imagen3 = ~imagen3;
                  imagen3 = 1-imagen3;
                  imagen3 = (imagen3 == 0);
@@ -430,9 +430,9 @@ function sliderNum_DeleteFcn(hObject, eventdata, handles)
 % --------------------------------------------------------------------
 
 
-% --- RADIO button press TO selected if the image is a chassis or a engine
-% number  in radiobutton5. || not to be selected for number plate or light
-% color engine numbers
+% --- 
+% number  in radiobutton5.
+
 function radiobutton5_Callback(hObject, eventdata, handles)
 % hObject    handle to radiobutton5 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
