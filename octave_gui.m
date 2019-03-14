@@ -2,6 +2,10 @@ pkg load image
 
 img = imload("example.png")
 
-img_grey = rgb2gray(img)
+threshold = 0.5
+
+img_bw = im2bw(img, threshold)
 
 imshow(img_grey)
+
+
