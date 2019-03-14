@@ -3,7 +3,7 @@ pkg load image
 function myplot
   t_bw = 0.4745099;
   t_gry = 0.1;
-  t_Noise = 1500;
+  t_Noise = 100;
   t_pause = 0.51;
   
   img_org = imread("images/1.jpg");
@@ -32,24 +32,29 @@ function myplot
   pause(t_pause);
   
   %%Noise removal
-  bwareaopen(img,t_Noise);
+  img = bwareaopen(img,t_Noise);
   imshow(img);
   %title('Noise free BW img');
   pause(t_pause);
   
-  %% Label connected components
-  [L Ne]=bwlabel(img);
-  %% Measure properties of image regions
-  propied=regionprops(L,'BoundingBox');
-  hold on
-  %% Plot Bounding Box
-  for n=1:size(propied,1)
-    rectangle('Position',propied(n).BoundingBox,'EdgeColor','g','LineWidth',2)
-  end
-  hold off
+  
+  comp_props = regionprops(img);
+  bbs = cat(1, comp_props.BoundingBox);
+  centroids = cat(1, comp_props.Centroid);
+  imwrite(img, "bbs.jpg");  
+
   img=img;
   imshow(img)
   title('Later ....');
+  
+  hold on
+  for i = 1:rows(bbs)
+    rectangle('Position', bbs(i,:), 'EdgeColor', 'g', 'LineWidth',1);
+  endfor
+  %plot(centroids(:,1),centroids(:,2), 'b*') 
+  hold off  
+  pause(2);
+ 
   
   
 end
