@@ -492,8 +492,8 @@ else
                                                         %NEEDED IF
                                                         %GENERATING TEMP
                                                         %count = 1;
-                                                            if 	n==1
-                                                                imwrite (img_r, 'C:\projects\refbmp\new1.bmp');
+                                                        if   	n==1
+                                                            imwrite (img_r, 'C:\projects\refbmp\new1.bmp');
                                                         elseif 	n==2
                                                             imwrite (img_r, 'C:\projects\refbmp\new2.bmp');
                                                         elseif 	n==3
