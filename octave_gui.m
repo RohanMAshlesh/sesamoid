@@ -1,12 +1,12 @@
 function octave_gui
-    global templates_file
-%    pkg load image
+    global templates_file = load('templates_file')
+   pkg load image
     t_bw = 0.4745099; %0.4745099; %0.42 %0.4745099; %0.215; %0.25;
     t_gry = 0.087; %0.087; 0.15;
     t_Noise = 500; %500;
     t_pause = 0.1;
 
-    img_org = imread('images/1f.jpg');
+    img_org = imread('images/2f.jpg');
     imshow(img_org);  title('original image');  pause(t_pause);
 
     %%Check and convert to grey
@@ -51,12 +51,12 @@ function octave_gui
     hold off
 
     title('now ....');
-    pause(2);
+    pause(3);
     %% Lets go
     %% heres the magic
     re = img;
 
-    while 0
+    while 1
         if isempty(re)
             break
         end
@@ -90,47 +90,47 @@ function octave_gui
             %NEEDED IF
             %GENERATING TEMP
             %count = 1;
-            if n==1
-                imwrite (img_r, 'rawData/new1.bmp');
-            elseif   n==2
-                imwrite (img_r, 'rawData/new2.bmp');
-            elseif   n==3
-                imwrite (img_r, 'rawData/new3.bmp');
-            elseif   n==4
-                imwrite (img_r, 'rawData/new4.bmp');
-            elseif   n==5
-                imwrite (img_r, 'rawData/new5.bmp');
-            elseif   n==6
-                imwrite (img_r, 'rawData/new6.bmp');
-            elseif   n==7
-                imwrite (img_r, 'rawData/new7.bmp');
-            elseif   n==8
-                imwrite (img_r, 'rawData/new8.bmp');
-            elseif   n==9
-                imwrite (img_r, 'rawData/new9.bmp');
-            elseif   n==10
-                imwrite (img_r, 'rawData/new10.bmp');
-            elseif   n==11
-                imwrite (img_r, 'rawData/new11.bmp');
-            elseif   n==12
-                imwrite (img_r, 'rawData/new12.bmp');
-            elseif   n==13
-                imwrite (img_r, 'rawData/new13.bmp');
-            elseif   n==14
-                imwrite (img_r, 'rawData/new14.bmp');
-            elseif   n==15
-                imwrite (img_r, 'rawData/new15.bmp');
-            elseif   n==16
-                imwrite (img_r, 'rawData/new16.bmp');
-            elseif   n==17
-                imwrite (img_r, 'rawData/new17.bmp');
-            elseif   n==18
-                imwrite (img_r, 'rawData/new18.bmp');
-            elseif   n==19
-                imwrite (img_r, 'rawData/new19.bmp');
-            elseif   n==20
-                imwrite (img_r, 'rawData/new20.bmp');
-            end
+            % if n==1
+            %     imwrite (img_r, 'rawData/new1.bmp');
+            % elseif   n==2
+            %     imwrite (img_r, 'rawData/new2.bmp');
+            % elseif   n==3
+            %     imwrite (img_r, 'rawData/new3.bmp');
+            % elseif   n==4
+            %     imwrite (img_r, 'rawData/new4.bmp');
+            % elseif   n==5
+            %     imwrite (img_r, 'rawData/new5.bmp');
+            % elseif   n==6
+            %     imwrite (img_r, 'rawData/new6.bmp');
+            % elseif   n==7
+            %     imwrite (img_r, 'rawData/new7.bmp');
+            % elseif   n==8
+            %     imwrite (img_r, 'rawData/new8.bmp');
+            % elseif   n==9
+            %     imwrite (img_r, 'rawData/new9.bmp');
+            % elseif   n==10
+            %     imwrite (img_r, 'rawData/new10.bmp');
+            % elseif   n==11
+            %     imwrite (img_r, 'rawData/new11.bmp');
+            % elseif   n==12
+            %     imwrite (img_r, 'rawData/new12.bmp');
+            % elseif   n==13
+            %     imwrite (img_r, 'rawData/new13.bmp');
+            % elseif   n==14
+            %     imwrite (img_r, 'rawData/new14.bmp');
+            % elseif   n==15
+            %     imwrite (img_r, 'rawData/new15.bmp');
+            % elseif   n==16
+            %     imwrite (img_r, 'rawData/new16.bmp');
+            % elseif   n==17
+            %     imwrite (img_r, 'rawData/new17.bmp');
+            % elseif   n==18
+            %     imwrite (img_r, 'rawData/new18.bmp');
+            % elseif   n==19
+            %     imwrite (img_r, 'rawData/new19.bmp');
+            % elseif   n==20
+            %     imwrite (img_r, 'rawData/new20.bmp');
+            % end
         end
     end
 

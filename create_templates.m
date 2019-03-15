@@ -1,9 +1,9 @@
 %CREATE TEMPLATES
 %Letter
 A1=imread('img/A (1).bmp');
-A2=imread('img/A (2).bmp');
-A3=imread('img/A (3).bmp');
-A4=imread('img/A (4).bmp');
+% A2=imread('img/A (2).bmp');
+% A3=imread('img/A (3).bmp');
+% A4=imread('img/A (4).bmp');
 % A5=imread('img/A (5).bmp');
 % A6=imread('img/A (6).bmp');
 % A7=imread('img/A (7).bmp');
@@ -33,8 +33,8 @@ X8=imread('img/X (8).bmp');
 X9=imread('img/X (9).bmp');
 X10=imread('img/X (10).bmp');
 X11=imread('img/X (11).bmp');
-% X12=imread('img/X (12).bmp');
-% X13=imread('img/X (13).bmp');
+X12=imread('img/X (12).bmp');
+X13=imread('img/X (13).bmp');
 % X14=imread('img/X (14).bmp');
 % X15=imread('img/X (15).bmp');
 % X16=imread('img/X (16).bmp');
@@ -61,12 +61,12 @@ X11=imread('img/X (11).bmp');
 
 
 %--------------begining of default array elemetns-------NO SPACE FOR...
-character=[A1 A2 A3 A4...
+character=[A1...
             % A5 A6 A7 A8 A9 A10...
             % A11 A12 A13 A14 A15 A16 A17 A18 A19 A20...
             % A21...
             X1 X2 X3 X4 X5 X6 X7 X8 X9 X10...
-            X11...
+            X11 X12 X13...
             %  X12 X13 X14 X15 X16 X17 X18 X19 X20...
             % X21 X22 X23 X24 X25 X26 X27 X28 X29 X30...
             % X31 X32 X33 X34 X35 X36...
@@ -78,13 +78,13 @@ character=[A1 A2 A3 A4...
             ];
 %--------------------------------GIVE SPACE FOR ...
 %character=(character);
-templates_file=mat2cell(character,336,[588 588 588 588 588 588 588 588 588 588 ...   %10A
- 588 588 588 588 588 ...
-%   588 588 588 588 588 588 ... %21A
-%  588 588 588 588 588 588 588 588 588 588 ...%X10
-%  588 588 588 588 588 588 588 588 588 588 ...%X20
-%  588 588 588 588 588 588 588 588 588 588 ...%X30
-%  588 588 588 588 588 588 ...
+templates_file=mat2cell(character,80,[98 98 98 98 98 98 98 98 98 98 ...   %10A
+ 98 98 98 98 ...
+%   98 98 98 98 98 98 ... %21A
+%  98 98 98 98 98 98 98 98 98 98 ...%X10
+%  98 98 98 98 98 98 98 98 98 98 ...%X20
+%  98 98 98 98 98 98 98 98 98 98 ...%X30
+%  98 98 98 98 98 98 ...
 
 ]);%X36
 

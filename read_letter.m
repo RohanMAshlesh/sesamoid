@@ -5,19 +5,20 @@ function letter=read_letter(imagn,num_letras)
 % Example:
 % imagn=imread('D.bmp');
 % letter=read_letter(imagn)
-global templates_file
+global templates_file;
+%templates_file = templates_file.templates_file;
 comp=[ ];
 for n=1:num_letras
-    sem=corr2(templates_file{1,n},imagn);
+    sem=corr2(templates_file{1,n},imagn)
     comp=[comp sem];
 end
 vd=find(comp==max(comp));
 %*-*-*-*-*-*-*-*-*-*-*-*-*-
     if 	vd==1	letter='A';
-elseif 	vd==2	letter='B';
-elseif 	vd==3	letter='C';
-elseif 	vd==4	letter='D';
 
+elseif 	vd==2	letter='n';
+elseif 	vd==3	letter='n';
+elseif 	vd==4	letter='n';
 elseif 	vd==5	letter='n';
 elseif 	vd==6	letter='n';
 elseif 	vd==7	letter='n';
@@ -78,4 +79,8 @@ elseif 	vd==57	letter='n';
 else
     letter='i';    % if not found
 end
+
+imshow(imagn);
+title(sprintf('current image: %s', letter));
+pause(1);
 
