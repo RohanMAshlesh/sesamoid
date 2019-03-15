@@ -1,11 +1,11 @@
 function octave_gui
-    pkg load image
-    t_bw = 0.4745099; %0.215; %0.25; 
-    t_gry = 0.1; %0.15;
-    t_Noise = 50;
+    %pkg load image
+    t_bw = 0.4745099;%0.42 %0.4745099; %0.215; %0.25;
+    t_gry = 0.2; %0.15;
+    t_Noise = 40;
     t_pause = 0.51;
 
-    img_org = imread('images/1.jpg');
+    img_org = imread('images/4.jpeg');
     imshow(img_org);  title('original imgage');  pause(t_pause);
 
     %%Check and convert to grey
@@ -48,9 +48,9 @@ function octave_gui
     end
     %plot(centroids(:,1),centroids(:,2), 'b*')
     hold off
-    
+
     title('now ....');
-    pause(2);   
+    pause(2);
     %% Lets go
     %% heres the magic
     re = img;
@@ -75,7 +75,7 @@ function octave_gui
             imshow(n1);
             title("before resize");
             pause(1);
-            img_r=imresize(n1,[ 168 294]);
+            img_r=imresize(n1,[336 588]);
             %Uncomment line below to see letters one by one
             imshow(img_r);
             title('and this ....');
