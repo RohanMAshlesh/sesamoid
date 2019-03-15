@@ -1,12 +1,13 @@
 function octave_gui
-    %pkg load image
-    t_bw = 0.4745099;%0.42 %0.4745099; %0.215; %0.25;
-    t_gry = 0.2; %0.15;
-    t_Noise = 40;
-    t_pause = 0.51;
+    global templates_file
+%    pkg load image
+    t_bw = 0.4745099; %0.4745099; %0.42 %0.4745099; %0.215; %0.25;
+    t_gry = 0.087; %0.087; 0.15;
+    t_Noise = 500; %500;
+    t_pause = 0.1;
 
-    img_org = imread('images/4.jpeg');
-    imshow(img_org);  title('original imgage');  pause(t_pause);
+    img_org = imread('images/1f.jpg');
+    imshow(img_org);  title('original image');  pause(t_pause);
 
     %%Check and convert to grey
     if ndims(img_org) == 3
@@ -55,7 +56,7 @@ function octave_gui
     %% heres the magic
     re = img;
 
-    while 1
+    while 0
         if isempty(re)
             break
         end
@@ -71,15 +72,21 @@ function octave_gui
             [r,c] = find(L==n);
             % Extract letter
             n1=imgn(min(r):max(r),min(c):max(c));
+
             % Resize letter (same size of template)
             imshow(n1);
-            title("before resize");
-            pause(1);
-            img_r=imresize(n1,[336 588]);
+            title(sprintf('%d %d %d', size(n1)));
+            img_r=imresize(n1,[80 98]);
+            % pause(5);
             %Uncomment line below to see letters one by one
             imshow(img_r);
-            title('and this ....');
-            pause(t_pause);
+            title('after resize');
+            % pause(5);
+            num_letras=size(templates_file,2);
+            letter=read_letter(img_r,num_letras);
+            disp(letter);
+
+
             %NEEDED IF
             %GENERATING TEMP
             %count = 1;
@@ -127,8 +134,7 @@ function octave_gui
         end
     end
 
-    imshow(getme);
-    letter=read_letter(img_r,num_letras);
+    % imshow(getme);
 end
 
 % octave_gui()

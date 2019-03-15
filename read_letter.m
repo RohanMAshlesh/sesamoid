@@ -13,29 +13,28 @@ for n=1:num_letras
 end
 vd=find(comp==max(comp));
 %*-*-*-*-*-*-*-*-*-*-*-*-*-
-    if 	vd==1	letter='A'; 
+    if 	vd==1	letter='A';
 elseif 	vd==2	letter='B';
 elseif 	vd==3	letter='C';
 elseif 	vd==4	letter='D';
-elseif 	vd==5	letter='E';
-elseif 	vd==6	letter='F';
-elseif 	vd==7	letter='G';
-elseif 	vd==8	letter='H';
-elseif 	vd==9	letter='I';
-elseif 	vd==10	letter='J';
-elseif 	vd==11	letter='K';
-elseif 	vd==12	letter='L';
-elseif 	vd==13	letter='M';
-elseif 	vd==14	letter='N';
-elseif 	vd==15	letter='O';
-elseif 	vd==16	letter='P';
-elseif 	vd==17	letter='Q';
-elseif 	vd==18	letter='R';
-elseif 	vd==19	letter='S';
-elseif 	vd==20	letter='T';
-elseif 	vd==21	letter='U';
 
-
+elseif 	vd==5	letter='n';
+elseif 	vd==6	letter='n';
+elseif 	vd==7	letter='n';
+elseif 	vd==8	letter='n';
+elseif 	vd==9	letter='n';
+elseif 	vd==10	letter='n';
+elseif 	vd==11	letter='n';
+elseif 	vd==12	letter='n';
+elseif 	vd==13	letter='n';
+elseif 	vd==14	letter='n';
+elseif 	vd==15	letter='n';
+elseif 	vd==16	letter='n';
+elseif 	vd==17	letter='n';
+elseif 	vd==18	letter='n';
+elseif 	vd==19	letter='n';
+elseif 	vd==20	letter='n';
+elseif 	vd==21	letter='n';
 elseif 	vd==22	letter='n';
 elseif 	vd==23	letter='n';
 elseif 	vd==24	letter='n';
@@ -73,8 +72,8 @@ elseif 	vd==55	letter='n';
 elseif 	vd==56	letter='n';
 elseif 	vd==57	letter='n';
 
-    
-    
+
+
     % default,,,,,,,,,,,,,,,,,,,,,,,,,,
 else
     letter='i';    % if not found
