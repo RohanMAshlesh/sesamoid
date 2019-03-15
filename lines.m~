@@ -26,15 +26,16 @@ function [fl, re]=lines(im_texto)
             s
             %*-*-*Uncomment lines below to see the result*-*-*-*-
             title(sprintf('dds = %d', s));
-%             subplot(2,1,1);imshow(fl);
-%             subplot(2,1,2);imshow(re);
-%             pause(3);
+
+            subplot(2,1,1);imshow(fl);
+subplot(2,1,2);imshow(re);
+                      pause(3);
             break
         else
             fl=im_texto;%Only one line.im_texto(s,:)
             re=[ ];
-            %subplot(2,1,1);imshow(fl);
-            %title(sprintf('s = %d', s));
+            subplot(2,1,1);imshow(fl);
+            title(sprintf('s = %d', s));
             % s
 %             pause(0.2);
         end

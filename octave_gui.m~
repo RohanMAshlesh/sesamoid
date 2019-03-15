@@ -1,8 +1,8 @@
 function octave_gui
-    pkg load image
+    %pkg load image
     t_bw = 0.4745099; %0.215; %0.25; 
-    t_gry = 0.1; %0.15;
-    t_Noise = 50;
+    t_gry = 0.15; %0.52;
+    t_Noise = 10;
     t_pause = 0.51;
 
     img_org = imread('images/1.jpg');
