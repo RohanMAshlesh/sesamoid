@@ -5,13 +5,13 @@ function letter=read_letter(imagn,num_letras)
 % Example:
 % imagn=imread('D.bmp');
 % letter=read_letter(imagn)
-global templates_file;
-%templates_file = templates_file.templates_file;
+templates_file = load('templates_file').templates_file;
 comp=[ ];
 for n=1:num_letras
     sem=corr2(templates_file{1,n},imagn)
     comp=[comp sem];
 end
+comp
 vd=find(comp==max(comp));
 %*-*-*-*-*-*-*-*-*-*-*-*-*-
     if 	vd==1	letter='A';

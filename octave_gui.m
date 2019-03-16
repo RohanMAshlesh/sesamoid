@@ -1,6 +1,6 @@
 function octave_gui
-    global templates_file = load('templates_file')
-   pkg load image
+    templates_file = load('templates_file');
+    pkg load image
     t_bw = 0.4745099; %0.4745099; %0.42 %0.4745099; %0.215; %0.25;
     t_gry = 0.087; %0.087; 0.15;
     t_Noise = 500; %500;
@@ -85,6 +85,15 @@ function octave_gui
             num_letras=size(templates_file,2);
             letter=read_letter(img_r,num_letras);
             disp(letter);
+
+            if letter == 'A'
+              output = fopen('output.txt', 'w');
+              fprintf(output, '%s\n', 'Found sesamoid bone.');
+            else
+              fprintf(output, '%s\n', 'Sesamoid bone not present.');
+            end
+
+            fclose(output);
 
 
             %NEEDED IF
