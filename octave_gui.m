@@ -1,12 +1,12 @@
 function octave_gui
-    templates_file = load('templates_file');
+    load templates_file;
     pkg load image
-    t_bw = 0.4745099; %0.4745099; %0.42 %0.4745099; %0.215; %0.25;
-    t_gry = 0.087; %0.087; 0.15;
-    t_Noise = 500; %500;
-    t_pause = 0.1;
+    t_bw = 0.44; %0.4745099; %0.42 %0.4745099; %0.215; %0.25;
+    t_gry = 0.09; %0.087; 0.15;
+    t_Noise = 80; %500;
+    t_pause = 0.6;
 
-    img_org = imread('images/2f.jpg');
+    img_org = imread('images/5.jpg');
     imshow(img_org);  title('original image');  pause(t_pause);
 
     %%Check and convert to grey
@@ -51,11 +51,11 @@ function octave_gui
     hold off
 
     title('now ....');
-    pause(3);
+    pause(6);
     %% Lets go
     %% heres the magic
     re = img;
-
+    output = '';
     while 1
         if isempty(re)
             break
@@ -76,74 +76,36 @@ function octave_gui
             % Resize letter (same size of template)
             imshow(n1);
             title(sprintf('%d %d %d', size(n1)));
-            img_r=imresize(n1,[80 98]);
-            % pause(5);
+            img_r=imresize(n1,[80 98], 'nearest');
+            % pause(0.4);
             %Uncomment line below to see letters one by one
             imshow(img_r);
             title('after resize');
-            % pause(5);
-            num_letras=size(templates_file,2);
+            % pause(0.4);
+            num_letras=columns(templates_file);
             letter=read_letter(img_r,num_letras);
-            disp(letter);
 
-            if letter == 'A'
-              output = fopen('output.txt', 'w');
-              fprintf(output, '%s\n', 'Found sesamoid bone.');
+
+            if any('A':'K' == letter)
+              output = strcat(output, 'Found sesamoid bone.\n');
             else
-              fprintf(output, '%s\n', 'Sesamoid bone not present.');
+              output = strcat(output, 'Sesamoid bone not present.\n');
             end
-
-            fclose(output);
-
 
             %NEEDED IF
             %GENERATING TEMP
             %count = 1;
-            % if n==1
-            %     imwrite (img_r, 'rawData/new1.bmp');
-            % elseif   n==2
-            %     imwrite (img_r, 'rawData/new2.bmp');
-            % elseif   n==3
-            %     imwrite (img_r, 'rawData/new3.bmp');
-            % elseif   n==4
-            %     imwrite (img_r, 'rawData/new4.bmp');
-            % elseif   n==5
-            %     imwrite (img_r, 'rawData/new5.bmp');
-            % elseif   n==6
-            %     imwrite (img_r, 'rawData/new6.bmp');
-            % elseif   n==7
-            %     imwrite (img_r, 'rawData/new7.bmp');
-            % elseif   n==8
-            %     imwrite (img_r, 'rawData/new8.bmp');
-            % elseif   n==9
-            %     imwrite (img_r, 'rawData/new9.bmp');
-            % elseif   n==10
-            %     imwrite (img_r, 'rawData/new10.bmp');
-            % elseif   n==11
-            %     imwrite (img_r, 'rawData/new11.bmp');
-            % elseif   n==12
-            %     imwrite (img_r, 'rawData/new12.bmp');
-            % elseif   n==13
-            %     imwrite (img_r, 'rawData/new13.bmp');
-            % elseif   n==14
-            %     imwrite (img_r, 'rawData/new14.bmp');
-            % elseif   n==15
-            %     imwrite (img_r, 'rawData/new15.bmp');
-            % elseif   n==16
-            %     imwrite (img_r, 'rawData/new16.bmp');
-            % elseif   n==17
-            %     imwrite (img_r, 'rawData/new17.bmp');
-            % elseif   n==18
-            %     imwrite (img_r, 'rawData/new18.bmp');
-            % elseif   n==19
-            %     imwrite (img_r, 'rawData/new19.bmp');
-            % elseif   n==20
-            %     imwrite (img_r, 'rawData/new20.bmp');
-            % end
+            % imwrite (img_r, sprintf('rawData/new%d.bmp', n));
         end
-    end
 
-    % imshow(getme);
+        % disp(letter);
+
+    end
+        printf(output);
+            o_f = fopen('output.txt', 'w');
+            fprintf(o_f, output);
+            fclose(o_f);
+    imshow(getme);
 end
 
 % octave_gui()
