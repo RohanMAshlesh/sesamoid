@@ -1,10 +1,11 @@
 function octave_gui
     load templates_file;
     pkg load image
-    t_bw = 0.44; %0.4745099; %0.42 %0.4745099; %0.215; %0.25;
-    t_gry = 0.09; %0.087; 0.15;
+    t_bw = 0.36; %0.4745099; %0.42 %0.4745099; %0.215; %0.25;
+    t_gry = 0.087; %0.087; 0.15;
     t_Noise = 80; %500;
     t_pause = 0.6;
+    found = false;
 
     img_org = imread('images/5.jpg');
     imshow(img_org);  title('original image');  pause(t_pause);
@@ -50,7 +51,7 @@ function octave_gui
     %plot(centroids(:,1),centroids(:,2), 'b*')
     hold off
 
-    title('now ....');
+    title('now ...');
     pause(6);
     %% Lets go
     %% heres the magic
@@ -85,11 +86,8 @@ function octave_gui
             num_letras=columns(templates_file);
             letter=read_letter(img_r,num_letras);
 
-
             if any('A':'K' == letter)
-              output = strcat(output, 'Found sesamoid bone.\n');
-            else
-              output = strcat(output, 'Sesamoid bone not present.\n');
+              found = letter
             end
 
             %NEEDED IF
@@ -101,7 +99,16 @@ function octave_gui
         % disp(letter);
 
     end
-        printf(output);
+
+    if found != 'n' && found != 'i'
+      output = strcat(output, 'Found sesamoid bone.\n');
+    else
+      output = strcat(output, 'Sesamoid bone not present.\n');
+    end
+
+
+
+    printf(output);
             o_f = fopen('output.txt', 'w');
             fprintf(o_f, output);
             fclose(o_f);
